@@ -6,6 +6,7 @@ Created on 2019-02-04
 """
 
 from kotti.resources import File
+from kotti.resources import get_root
 from pyramid.i18n import TranslationStringFactory
 
 _ = TranslationStringFactory('kotti_get_root_error')
@@ -30,6 +31,11 @@ def kotti_configure(settings):
     File.type_info.addable_to.append('CustomContent')
 
 
+def populate():
+    site = get_root()
+    site.default_view = 'front-page'
+
+
 def includeme(config):
     """ Don't add this to your ``pyramid_includes``, but add the
     ``kotti_configure`` above to your ``kotti.configurators`` instead.
@@ -37,6 +43,11 @@ def includeme(config):
     :param config: Pyramid configurator object.
     :type config: :class:`pyramid.config.Configurator`
     """
+
+    config.add_view(
+        name='front-page',
+        renderer='kotti_addon:templates/front-page.pt',
+        )
 
     config.add_translation_dirs('kotti_get_root_error:locale')
     config.add_static_view('static-kotti_get_root_error', 'kotti_get_root_error:static')
