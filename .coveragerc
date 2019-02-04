@@ -1,0 +1,2 @@
+[run]
+omit = kotti_get_root_error/tests/*
