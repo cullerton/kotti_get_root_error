@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en"
+      i18n:domain="kotti_cullerton"
+      metal:use-macro="api.macro('kotti:templates/view/master.pt')">
+
+    <div metal:fill-slot="content" class="front-page-view content">
+
+        <h1>Testing My Error</h1>
+        <p class="description">
+          Don't forget to tip your waitress
+        </p>
+
+
+      <div class="body">
+        This is a custom front page
+      </div>
+    </div>
+
+</html>
